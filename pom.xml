@@ -1,36 +1,110 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.klsorge.common</groupId>
-    <artifactId>kls-parent</artifactId>
-    <version>2</version>
-  </parent>
+  <groupId>com.klsorge.common</groupId>
   <artifactId>kls-plugin-config</artifactId>
-  <version>2-SNAPSHOT</version>
-  <url>${home.url}</url>
+  <version>1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>KLSorge Plugin Configuration</name>
+  <description>Configuration files for various maven plugins.</description>
+  <organization>
+    <name>KLSorge Consulting</name>
+    <url>http://www.klsorge.com</url>
+  </organization>
   <inceptionYear>2014</inceptionYear>
+  <prerequisites>
+    <maven>3.0.4</maven>
+  </prerequisites>
+  <url>http://dev.klsorge.com</url>
+  <developers>
+    <developer>
+      <id>kurt</id>
+      <name>Kurt Sorge</name>
+      <email>kurt@klsorge.com</email>
+    </developer>
+  </developers>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
   <repositories>
     <repository>
       <id>proxy</id>
-      <url>${repository.url}</url>
-      <releases><enabled>true</enabled></releases>
-      <snapshots><enabled>true</enabled></snapshots>
+      <url>http://dev.klsorge.com/proxy</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
     </repository>
   </repositories>
 
   <scm>
-  	<connection>${scm.connection}</connection>
-  	<developerConnection>${scm.developerConnection}</developerConnection>
-  	<url>${scm.url}</url>
+    <connection>https://github.com/ksorge/${project.artifactId}.git</connection>
+    <developerConnection>https://github.com/ksorge/${project.artifactId}.git</developerConnection>
+    <url>https://github.com/ksorge/${project.artifactId}.git</url>
   </scm>
 
   <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <name>Release Repository</name>
+      <url>dav:http://dev.klsorge.com/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Snapshot Repository</name>
+      <url>dav:http://dev.klsorge.com/snapshots</url>
+    </snapshotRepository>
     <site>
-      <id>${distributionManagement.site.id}</id>
-      <name>${distributionManagement.site.name}</name>
-      <url>${distributionManagement.site.url}</url>
+      <id>site</id>
+      <name>Site Repository</name>
+      <url>dav:http://dev.klsorge.com/site/${project.artifactId}</url>
     </site>
   </distributionManagement>
 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>proxy</id>
+      <name>Proxy Repository</name>
+      <url>http://dev.klsorge.com/proxy/</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav-jackrabbit</artifactId>
+        <version>2.4</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven.wagon</groupId>
+      <artifactId>wagon-webdav-jackrabbit</artifactId>
+      <version>2.4</version>
+    </dependency>
+  </dependencies>
 </project>
