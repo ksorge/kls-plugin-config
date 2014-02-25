@@ -15,7 +15,7 @@
   <prerequisites>
     <maven>3.0.4</maven>
   </prerequisites>
-  <url>http://dev.klsorge.com</url>
+  <url>http://dev.klsorge.com/site/${project.artifactId}/${project.version}</url>
   <developers>
     <developer>
       <id>kurt</id>
@@ -42,10 +42,21 @@
   </repositories>
 
   <scm>
-    <connection>https://github.com/ksorge/${project.artifactId}.git</connection>
-    <developerConnection>https://github.com/ksorge/${project.artifactId}.git</developerConnection>
+    <connection>scm:git:https://github.com/ksorge/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:https://github.com/ksorge/${project.artifactId}.git</developerConnection>
     <url>https://github.com/ksorge/${project.artifactId}.git</url>
   </scm>
+
+  <ciManagement>
+    <system>Jenkins</system>
+    <url>http://dev.klsorge.com/jenkins/job/${project.artifactId}</url>
+    <notifiers>
+      <notifier>
+        <type>mail</type>
+        <address>kurt@klsorge.com</address>
+      </notifier>
+    </notifiers>
+  </ciManagement>
 
   <distributionManagement>
     <repository>
@@ -61,7 +72,7 @@
     <site>
       <id>site</id>
       <name>Site Repository</name>
-      <url>dav:http://dev.klsorge.com/site/${project.artifactId}</url>
+      <url>dav:http://dev.klsorge.com/site/${project.artifactId}/${project.version}</url>
     </site>
   </distributionManagement>
 
@@ -96,6 +107,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
+        <version>3.3</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
