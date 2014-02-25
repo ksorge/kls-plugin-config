@@ -4,6 +4,7 @@
   <artifactId>kls-plugin-config</artifactId>
   <version>3-SNAPSHOT</version>
   <packaging>jar</packaging>
+
   <name>KLSorge Plugin Configuration</name>
   <description>Configuration files for various maven plugins.</description>
   <organization>
