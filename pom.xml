@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.klsorge.common</groupId>
   <artifactId>kls-plugin-config</artifactId>
-  <version>1-SNAPSHOT</version>
+  <version>1</version>
   <packaging>jar</packaging>
   <name>KLSorge Plugin Configuration</name>
   <description>Configuration files for various maven plugins.</description>
