@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.klsorge.common</groupId>
   <artifactId>kls-plugin-config</artifactId>
-  <version>6</version>
+  <version>6-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>KLSorge Plugin Configuration</name>
@@ -42,10 +42,9 @@
   </repositories>
 
   <scm>
-    <connection>scm:git:git://github.com/ksorge/${project.artifactId}.git</connection>
-    <developerConnection>scm:git:git://github.com/ksorge/${project.artifactId}.git</developerConnection>
-    <url>scm:git:git://github.com/ksorge/${project.artifactId}.git</url>
-    <tag>kls-plugin-config-6</tag>
+    <connection>scm:git:git@github.com:ksorge/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:git@github.com:ksorge/${project.artifactId}.git</developerConnection>
+    <url>scm:git:git@github.com:ksorge/${project.artifactId}.git</url>
   </scm>
 
   <ciManagement>
